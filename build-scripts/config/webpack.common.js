@@ -50,8 +50,7 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        use: "happypack/loader?id=js",
-        include: /node_modules\/(kryfe|supply)-components/
+        use: "happypack/loader?id=js"
       },
       {
         test: /\.css$/,

@@ -34,9 +34,9 @@ npm run intl
 
 **prod**：启动本地 webpackServer，用于模式生产环境。
 
-**build**：打包测试环境代码，包含 console 的 log、warn 和 error 信息，用于 bug 调试。配合 jenkins 的 test、citest 环境。
+**build**：打包测试环境代码，包含 console 的 log、warn 和 error 信息，用于 bug 调试。
 
-**release**：打包正式边境代码，不包含任何 console 信息。配合 jenkins 的正式环境。
+**release**：打包正式边境代码，不包含任何 console 信息。
 
 **analyzer**：代码打包分析命令。
 
