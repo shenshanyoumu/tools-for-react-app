@@ -34,7 +34,7 @@
     "style-loader": "^0.19.0",
     "stylelint": "^8.2.0",
     "url-loader": "^0.6.2",
-    "happypack": "^happypack",
+    "happypack": "^5.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "clean-webpack-plugin": "^1.0.0",
     "chunk-manifest-webpack-plugin": "^1.1.2",
