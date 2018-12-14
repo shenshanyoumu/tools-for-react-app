@@ -2,6 +2,7 @@ const fs = require('fs');
 const { sync: globSync } = require('glob');
 const { sync: mkdirpSync } = require('mkdirp');
 
+// 项目本地语言包
 const ROOT = process.cwd();
 const MESSAGES_PATTERN = `${ROOT}/intl/messages/**/*.json`;
 const LANG_DIR = `${ROOT}/public/lang/zh-CN/`;
