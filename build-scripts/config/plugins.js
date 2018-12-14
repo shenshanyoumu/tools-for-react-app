@@ -12,6 +12,15 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+const __DEV__ = process.env.NODE_ENV === "development";
+const __PROD__ = process.env.NODE_ENV === "production";
+const __TEST__ = process.env.NODE_ENV === "test";
+const __SERVER__ = process.env.BABEL_ENV === "server";
+const __CLIENT__ = !__SERVER__;
+const __HOST__ = process.env.HOST;
+const __PORT__ = process.env.PORT;
+const __HOST_API__ = process.env.HOST_API;
+const __HOST_CDN__ = process.env.HOST_CDN;
 
 const extractLibStyle = new ExtractTextPlugin({
   filename: "css/vendor.[contenthash:6].css",
