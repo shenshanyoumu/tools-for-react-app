@@ -58,8 +58,16 @@ const miniPluginList = [
     inlineManifest: true
   }),
   new webpack.DefinePlugin({
-    __CLIENT__: JSON.stringify(true),
-    __SERVER__: JSON.stringify(false)
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    __DEV__: JSON.stringify(__DEV__),
+    __PROD__: JSON.stringify(__PROD__),
+    __TEST__: JSON.stringify(__TEST__),
+    __CLIENT__: JSON.stringify(__CLIENT__),
+    __SERVER__: JSON.stringify(__SERVER__),
+    __HOST__: JSON.stringify(__HOST__),
+    __PORT__: JSON.stringify(__PORT__),
+    __HOST_API__: JSON.stringify(__HOST_API__),
+    __HOST_CDN__: JSON.stringify(__HOST_CDN__)
   })
 ];
 
@@ -119,8 +127,16 @@ const intlPluginList = [
 const serverPluginList = [
   ...commonPluginList,
   new webpack.DefinePlugin({
-    __CLIENT__: JSON.stringify(false),
-    __SERVER__: JSON.stringify(true)
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    __DEV__: JSON.stringify(__DEV__),
+    __PROD__: JSON.stringify(__PROD__),
+    __TEST__: JSON.stringify(__TEST__),
+    __CLIENT__: JSON.stringify(__CLIENT__),
+    __SERVER__: JSON.stringify(__SERVER__),
+    __HOST__: JSON.stringify(__HOST__),
+    __PORT__: JSON.stringify(__PORT__),
+    __HOST_API__: JSON.stringify(__HOST_API__),
+    __HOST_CDN__: JSON.stringify(__HOST_CDN__)
   })
 ];
 
