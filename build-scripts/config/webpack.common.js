@@ -16,7 +16,6 @@ module.exports = {
     polyfill: ["babel-polyfill"],
     vendor: [
       "immutable",
-      "immer",
       "moment",
       "prop-types",
       "react",
@@ -40,6 +39,7 @@ module.exports = {
   resolve: {
     modules: ["./src", "./public", "./server", "./node_modules"],
     extensions: [".js", ".jsx", ".less"]
+    // mainFields: ['jsnext:main', 'browser', 'main'], bring about handsontable build failed
   },
   module: {
     rules: [
@@ -50,16 +50,17 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        use: "happypack/loader?id=js"
+        use: "happypack/loader?id=js",
+        include: /node_modules\/(kryfe|supply)-components/
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(["css-loader"])
+        use: ExtractTextPlugin.extract(["css-loader?minimize"])
       },
       {
         test: /\.less/,
         use: extractLibStyle.extract([
-          "css-loader",
+          "css-loader?minimize",
           {
             loader: "postcss-loader",
             options: postcssOptions
@@ -72,7 +73,7 @@ module.exports = {
       {
         test: /\.less/,
         use: extractProjectStyle.extract([
-          "css-loader",
+          "css-loader?minimize",
           {
             loader: "postcss-loader",
             options: postcssOptions

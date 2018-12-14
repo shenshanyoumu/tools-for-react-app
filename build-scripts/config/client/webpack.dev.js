@@ -1,13 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
-const commonConfig = require('../webpack.common');
-const Merge = require('webpack-merge');
-const { pluginList } = require('../plugins');
+const path = require("path");
+const webpack = require("webpack");
+const commonConfig = require("../webpack.common");
+const Merge = require("webpack-merge");
+const { pluginList } = require("../plugins");
 
 module.exports = Merge(commonConfig, {
-  devtool: 'eval-source-map',
+  devtool: "eval-source-map",
   entry: {
-    main: ['react-hot-loader/patch', './src/index.jsx'],
+    main: ["react-hot-loader/patch", "./src/index.jsx"]
   },
   plugins: [
     ...pluginList,
@@ -19,8 +19,8 @@ module.exports = Merge(commonConfig, {
 
       return chunk
         .mapModules(m => path.relative(m.context, m.request))
-        .join('_');
+        .join("_");
     }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+    new webpack.HotModuleReplacementPlugin()
+  ]
 });

@@ -8,7 +8,7 @@ const { pluginList } = require('../plugins');
 module.exports = Merge(commonConfig, {
   devtool: 'source-map',
   output: {
-    publicPath: process.env.PUBLIC_PATH,
+    publicPath: process.env.HOST_CDN,
   },
   plugins: [
     ...pluginList,

@@ -43,7 +43,9 @@ function compile(config, previousfileSize) {
 
 module.exports = function webpackCompile(config) {
   if (!checkRequiredFiles(paths.appHtml, paths.appIndexJs)) {
-    console.log(chalk.red("required the fellowing files: index.html."));
+    console.log(
+      chalk.red("required the fellowing files: index.html and kryfe-cmd.js.")
+    );
     process.exit(1);
   }
 
