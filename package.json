@@ -22,6 +22,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "address": "^1.0.3",
     "lint-staged": "^4.2.1",
     "prettier-eslint-cli": "^4.7.1",
     "react-hot-loader": "^4.0.1",
