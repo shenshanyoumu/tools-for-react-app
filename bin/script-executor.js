@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const spawn = require("cross-spawn");
 const args = process.argv.slice(2);
+
+// 模块支持的脚本类型，这些都可以在实际项目的package.json文件中设置
 const supportedScripts = [
   "start",
   "start.prod",

@@ -11,6 +11,7 @@ module.exports = Merge(commonConfig, {
   },
   plugins: [
     ...pluginList,
+    // 用于在增量打包时对chunk命名
     new webpack.NamedModulesPlugin(),
     new webpack.NamedChunksPlugin(chunk => {
       if (chunk.name) {

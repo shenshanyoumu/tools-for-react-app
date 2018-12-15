@@ -18,6 +18,7 @@ const MAX_BUNDLE_GZIP_SIZE = 512 * 1024;
 const MAX_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 function compile(config, previousfileSize) {
+  // Webpack编译器实例对象
   let compiler = webpack(config);
 
   return new Promise((resolve, reject) => {

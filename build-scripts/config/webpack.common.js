@@ -28,18 +28,18 @@ module.exports = {
       "react-router-redux",
       "redux"
     ],
-    main: "./src/index.jsx"
+    main: "./src/index.jsx" //项目的主入口，Webpack会从这个文件开始构建
   },
   output: {
     filename: "js/[name].[chunkhash:6].js",
     chunkFilename: "js/[name].[chunkhash:6].js",
     path: path.resolve(ROOT, "dist"),
-    publicPath: "/"
+    publicPath: "/" //虚拟路径，会映射到dist目录
   },
   resolve: {
     modules: ["./src", "./public", "./server", "./node_modules"],
     extensions: [".js", ".jsx", ".less"]
-    // mainFields: ['jsnext:main', 'browser', 'main'], bring about handsontable build failed
+    // mainFields: ['jsnext:main', 'browser', 'main'],
   },
   module: {
     rules: [

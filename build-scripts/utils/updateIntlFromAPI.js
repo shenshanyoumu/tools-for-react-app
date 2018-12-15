@@ -68,20 +68,6 @@ function createIntlFromAPI() {
 
         const result = Object.assign({}, oldData, newData);
 
-        // console.log(
-        //   chalk.yellow(
-        //     `${locale} ${fileBasename}.json old lang ==========> \n${fileContent}\n`
-        //   )
-        // );
-
-        // console.log(
-        //   chalk.green(
-        //     `${locale} ${fileBasename}.json new lang ==========> \n${JSON.stringify(
-        //       result
-        //     )}\n\n`
-        //   )
-        // );
-
         fs.writeFileSync(filename, JSON.stringify(result, null, 2));
       });
     });

@@ -14,7 +14,7 @@ module.exports = function(proxy, allowedHost) {
     contentBase: paths.dist,
     watchContentBase: true,
     hot: true,
-    publicPath: config.output.publicPath,
+    publicPath: config.output.publicPath, //用户在应用访问时的虚拟路径，会被映射为config.output.path路径。
     quiet: true,
     https: protocol === "https",
     host: host,

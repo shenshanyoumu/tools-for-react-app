@@ -1,8 +1,8 @@
 const commonConfig = require("./webpack.common");
 const Merge = require("webpack-merge");
-const nodeExternals = require("webpack-node-externals");
 const { serverPluginList } = require("./plugins");
 
+// 进行SSR的配置
 module.exports = Merge(commonConfig, {
   devtool: "source-map",
   entry: "./src/server.js",
