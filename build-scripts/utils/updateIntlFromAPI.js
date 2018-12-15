@@ -1,38 +1,28 @@
-const path = require('path');
-const chalk = require('chalk');
-const fs = require('fs-extra');
-const glob = require('glob');
-const fetch = require('isomorphic-fetch');
+const path = require("path");
+const chalk = require("chalk");
+const fs = require("fs-extra");
+const glob = require("glob");
+const fetch = require("isomorphic-fetch");
 
 const HOST_APIS = {
-  citest: 'http://citest-ps-ml.shishike.com',
-  gld: 'http://gld-ps-ml.keruyun.com',
-  prod: 'http://ps-ml.keruyun.com',
+  intl: "http://localhost:9000/"
 };
-const defaultLocales = ['zh-CN', 'en-US'];
+const defaultLocales = ["zh-CN", "en-US"];
 
 const ROOT = process.cwd();
-const customLocales = process.env.LOCALES ? process.env.LOCALES.split('|') : [];
+const customLocales = process.env.LOCALES ? process.env.LOCALES.split("|") : [];
 const locales = [...defaultLocales, ...customLocales];
 const serviceName = process.env.SERVICE_NAME;
-const serviceEnv = process.env.SERVICE_ENV || 'citest';
+const serviceEnv = process.env.SERVICE_ENV || "intl";
 const HOST_API = HOST_APIS[serviceEnv];
 
 if (!serviceName) {
-  console.error(
-    chalk.red(
-      `Error: You project name is required. Please set as 'SERVICE' like 'SERVICE=supply-ui'`
-    )
-  );
+  console.error(chalk.red(`Error: You project name is required.`));
   process.exit(1);
 }
 
 if (!HOST_API) {
-  console.error(
-    chalk.red(
-      `Error: 'SERVICE_ENV' is not found. please use 'citest','gld','prod'.`
-    )
-  );
+  console.error(chalk.red(`Error: 'SERVICE_ENV' is not found.`));
   process.exit(1);
 }
 
@@ -40,10 +30,10 @@ function fetchIntl({ service, source, languageCode }) {
   const params = `?service=${service}&source=${source}&languageCode=${languageCode}`;
 
   return fetch(`${HOST_API}/internation/api/transfers/all${params}`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-    },
+      "Content-Type": "application/json"
+    }
   })
     .then(res => res.json())
     .catch(err => {
@@ -56,13 +46,13 @@ function createIntlFromAPI() {
     const LANG_PATTERN = `${ROOT}/public/lang/${locale}/**/*.json`;
 
     glob.sync(LANG_PATTERN).forEach(filename => {
-      const fileBasename = path.basename(filename, '.json');
-      const fileContent = fs.readFileSync(filename, 'utf8');
+      const fileBasename = path.basename(filename, ".json");
+      const fileContent = fs.readFileSync(filename, "utf8");
 
       fetchIntl({
         service: serviceName,
         source: fileBasename,
-        languageCode: locale.replace('-', '_'),
+        languageCode: locale.replace("-", "_")
       }).then(res => {
         const newData = {};
         res.body.data.map(item => {
