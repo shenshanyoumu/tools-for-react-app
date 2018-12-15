@@ -1,30 +1,24 @@
 {
-  "name": "@kry/kryfe-tools",
-  "version": "1.4.6",
-  "description": "fe tools of kryfe-react-projects.",
-  "repository": {
-    "type": "git",
-    "url": "http://gitlab.shishike.com/front_end/kryfe-tools"
-  },
+  "name": "tools-for-react-app",
+  "version": "0.0.1",
+  "description": "a set of tools for react-app ",
   "keywords": [
-    "kryfe-tools"
-  ],
-  "contributors": [
-    "kangbaohua <kangbaohua_cd@keruyun.com>"
+    "webpack",
+    "config",
+    "react"
   ],
   "engines": {
     "node": ">=6"
   },
-  "license": "MIT",
   "files": [
     "bin",
-    "kryfe-script"
+    "build-scripts"
   ],
   "bin": {
-    "kryfe-script": "./bin/kryfe-script.js",
+    "script-executor": "./bin/script-executor.js"
   },
   "scripts": {
-    "eslint": "eslint bin/ kryfe-cmd/ kryfe-script/",
+    "eslint": "eslint bin/ build-scripts/",
     "precommit": "lint-staged"
   },
   "dependencies": {
