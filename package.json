@@ -21,7 +21,7 @@
     "kryfe-script"
   ],
   "bin": {
-    "kryfe-script": "./bin/kryfe-script.js",
+    "kryfe-script": "./bin/kryfe-script.js"
   },
   "scripts": {
     "eslint": "eslint bin/ kryfe-cmd/ kryfe-script/",
